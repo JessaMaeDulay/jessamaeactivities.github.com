@@ -25,7 +25,7 @@
 	<button class="btn" id="leftBtn" onclick="moveLetter('left')">Left</button>
 	<button class="btn" id="rightBtn" onclick="moveLetter('right')">Right</button>
 	<div class="container">
-		<div class="inner" id="letter"><img src= RIGHT.png /> </div>
+		<div class="inner" id="letter"><img src= right.png /> </div>
 	</div>
 
 	<script>
@@ -44,25 +44,25 @@
 				case 'up':
 					if (currentPosition.top > containerDiv.offsetTop + 2) {
 						currentPosition.top -= 20;
-                        document.getElementById('letter').innerHTML='<img src= UP.png />';
+                        document.getElementById('letter').innerHTML='<img src= up.png />';
 					}
                     break;
 				case 'down':
 					if (currentPosition.top < containerDiv.offsetTop + containerHeight - letterSize - 2) {
 						currentPosition.top += 20;
-                         document.getElementById('letter').innerHTML='<img src= DOWN.png />';
+                         document.getElementById('letter').innerHTML='<img src= down.png />';
 					}
                 	break;
 				case 'left':
 					if (currentPosition.left > containerDiv.offsetLeft + 15) {
 						currentPosition.left -= 20;
-                         document.getElementById('letter').innerHTML='<img src= RIGHT.png />';
+                         document.getElementById('letter').innerHTML='<img src= left.png />';
 					}
                 	break;
 				case 'right':
 					if (currentPosition.left < containerDiv.offsetLeft + containerWidth - letterSize - 2) {
 						currentPosition.left += 20;
-                         document.getElementById('letter').innerHTML='<img src= RIGHT.png />';
+                         document.getElementById('letter').innerHTML='<img src= right.png />';
 
 					}
                     break;

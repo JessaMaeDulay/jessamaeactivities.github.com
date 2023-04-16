@@ -1,0 +1,75 @@
+<head>
+	<title>ARROW</title>
+	<style>
+		.container {
+			width: 1400px;
+			height: 500px;
+			border: 2px solid black;
+			padding: 20px;
+			position: relative;
+		}
+    	.inner {
+			position: absolute;
+
+			width: 180px;
+			height: 180px;
+
+
+        }
+
+	</style>
+</head>
+<body>
+	<button class="btn" id="upBtn" onclick="moveLetter('up')">Up</button>
+	<button class="btn" id="downBtn" onclick="moveLetter('down')">Down</button>
+	<button class="btn" id="leftBtn" onclick="moveLetter('left')">Left</button>
+	<button class="btn" id="rightBtn" onclick="moveLetter('right')">Right</button>
+	<div class="container">
+		<div class="inner" id="letter"><img src= RIGHT.png /> </div>
+	</div>
+
+	<script>
+		var letterDiv = document.getElementById("letter");
+		var containerDiv = document.querySelector(".container");
+		var currentPosition = {
+			top: containerDiv.offsetTop + 2,
+			left: containerDiv.offsetLeft + 15
+		};
+		var letterSize = letterDiv.offsetWidth;
+		var containerWidth = containerDiv.offsetWidth;
+		var containerHeight = containerDiv.offsetHeight;
+
+    	function moveLetter(direction) {
+			switch (direction) {
+				case 'up':
+					if (currentPosition.top > containerDiv.offsetTop + 2) {
+						currentPosition.top -= 20;
+                        document.getElementById('letter').innerHTML='<img src= UP.png />';
+					}
+                    break;
+				case 'down':
+					if (currentPosition.top < containerDiv.offsetTop + containerHeight - letterSize - 2) {
+						currentPosition.top += 20;
+                         document.getElementById('letter').innerHTML='<img src= DOWN.png />';
+					}
+                	break;
+				case 'left':
+					if (currentPosition.left > containerDiv.offsetLeft + 15) {
+						currentPosition.left -= 20;
+                         document.getElementById('letter').innerHTML='<img src= RIGHT.png />';
+					}
+                	break;
+				case 'right':
+					if (currentPosition.left < containerDiv.offsetLeft + containerWidth - letterSize - 2) {
+						currentPosition.left += 20;
+                         document.getElementById('letter').innerHTML='<img src= RIGHT.png />';
+
+					}
+                    break;
+            }
+			letterDiv.style.top = currentPosition.top + "px";
+			letterDiv.style.left = currentPosition.left + "px";
+        }
+	</script>
+</body>
+
